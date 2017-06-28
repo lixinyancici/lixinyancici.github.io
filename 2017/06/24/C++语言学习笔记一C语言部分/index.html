@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="That's The Story Of Life." />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -89,12 +89,23 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="StarrySky's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="学习材料是”C语言深度剖析”  补码按我自己的理解, 补码其实很简单, 就是一个用无符号数(状态)表示有符号数的过程,因为计算机底层0101本身就没符号的概念,所以将有符号数建立在无符号数基础上也很自然:                 |              128  |  *         129      |      127    130          |">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++语言学习笔记一C语言部分">
+<meta property="og:url" content="http://yoursite.com/2017/06/24/C++语言学习笔记一C语言部分/index.html">
 <meta property="og:site_name" content="StarrySky's Blog">
+<meta property="og:description" content="学习材料是”C语言深度剖析”  补码按我自己的理解, 补码其实很简单, 就是一个用无符号数(状态)表示有符号数的过程,因为计算机底层0101本身就没符号的概念,所以将有符号数建立在无符号数基础上也很自然:                 |              128  |  *         129      |      127    130          |">
+<meta property="og:image" content="http://yoursite.com/2017/06/24/C++语言学习笔记一C语言部分/运算符.png">
+<meta property="og:image" content="c:/Users/StarrySky/Desktop/预处理易错点.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/06/24/C++语言学习笔记一C语言部分/预处理指令1.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/06/24/C++语言学习笔记一C语言部分/预处理指令2.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/06/24/C++语言学习笔记一C语言部分/linux_binary_memory.png">
+<meta property="og:updated_time" content="2017-06-28T10:32:23.345Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="StarrySky's Blog">
+<meta name="twitter:title" content="C++语言学习笔记一C语言部分">
+<meta name="twitter:description" content="学习材料是”C语言深度剖析”  补码按我自己的理解, 补码其实很简单, 就是一个用无符号数(状态)表示有符号数的过程,因为计算机底层0101本身就没符号的概念,所以将有符号数建立在无符号数基础上也很自然:                 |              128  |  *         129      |      127    130          |">
+<meta name="twitter:image" content="http://yoursite.com/2017/06/24/C++语言学习笔记一C语言部分/运算符.png">
 
 
 
@@ -122,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/24/C++语言学习笔记一C语言部分/"/>
 
 
 
 
 
-  <title> StarrySky's Blog </title>
+  <title> C++语言学习笔记一C语言部分 | StarrySky's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -153,9 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -292,9 +301,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -324,10 +333,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/06/24/C++语言学习笔记一C语言部分/" itemprop="url">
-                  C++语言学习笔记一C语言部分
-                </a>
+                C++语言学习笔记一C语言部分
               
             
           </h1>
@@ -378,9 +384,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>学习材料是”C语言深度剖析”</p>
 </blockquote>
 <h2 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h2><p>按我自己的理解, 补码其实很简单, 就是一个用无符号数(状态)表示有符号数的过程,因为计算机底层0101本身就没符号的概念,所以将有符号数建立在无符号数基础上也很自然:</p>
@@ -603,42 +607,56 @@
 <p>所谓的内存管理,其实就是管理”运行时堆”.</p>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>不使用库函数编写strlen, 但是当str很长时间,这个函数并不实用:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">size_t</span> myStrlen(<span class="keyword">const</span> <span class="keyword">char</span> *str)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (*str != <span class="string">'\0'</span>) &#123;</div><div class="line">        <span class="keyword">return</span> (myStrlen(++str) + <span class="number">1</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+        
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -646,6 +664,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -665,8 +687,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -746,6 +777,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#补码"><span class="nav-number">1.</span> <span class="nav-text">补码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-static-静态变量"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. static(静态变量):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-extern-声明其具有外部链接属性-同static相反"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. extern(声明其具有外部链接属性,同static相反):</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型限定符"><span class="nav-number">1.1.</span> <span class="nav-text">类型限定符:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-const-只读变量"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. const(只读变量):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-volatile-关闭优化-让编译器老老实实按语句的意思来编译"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. volatile(关闭优化,让编译器老老实实按语句的意思来编译):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-结构体中的匿名成员"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 结构体中的匿名成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-union"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. union</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-enum-枚举-是个好东西"><span class="nav-number">1.1.5.</span> <span class="nav-text">3. enum(枚举,是个好东西)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制语句"><span class="nav-number">1.2.</span> <span class="nav-text">控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typedef-给已经存在的类型起别名"><span class="nav-number">1.3.</span> <span class="nav-text">typedef(给已经存在的类型起别名)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-typedef与类型限定符const"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. typedef与类型限定符const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-typedef与-define"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. typedef与#define</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sizeof"><span class="nav-number">1.4.</span> <span class="nav-text">sizeof</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#符号"><span class="nav-number">2.</span> <span class="nav-text">符号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">2.1.</span> <span class="nav-text">注释(/**/ //)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-预处理时-编译器会使用空格替换-所以"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. /* */ 预处理时,编译器会使用空格替换,所以</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位运算符-amp-lt-lt-gt-gt"><span class="nav-number">2.2.</span> <span class="nav-text">位运算符(| & ~ ^ << >>)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自增自减运算符-–"><span class="nav-number">2.3.</span> <span class="nav-text">自增自减运算符(++ –)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-C中的计算单位"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. C中的计算单位:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-var-var–计算单位结束后才会进行自增或者自减操作"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. var++,var–计算单位结束后才会进行自增或者自减操作.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符优先级"><span class="nav-number">2.4.</span> <span class="nav-text">运算符优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-运算符优先级表"><span class="nav-number">2.4.1.</span> <span class="nav-text">1. 运算符优先级表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-易错点"><span class="nav-number">2.4.2.</span> <span class="nav-text">2. 易错点:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接符"><span class="nav-number">2.5.</span> <span class="nav-text">连接符(\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预处理"><span class="nav-number">3.</span> <span class="nav-text">预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理指令"><span class="nav-number">3.1.</span> <span class="nav-text">预处理指令:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-预处理指令表"><span class="nav-number">3.1.1.</span> <span class="nav-text">1. 预处理指令表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ASCII-C-定义的宏"><span class="nav-number">3.1.2.</span> <span class="nav-text">2. ASCII C 定义的宏:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏定义-define-undef"><span class="nav-number">3.2.</span> <span class="nav-text">宏定义(#define #undef)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pragma预处理"><span class="nav-number">3.3.</span> <span class="nav-text">#pragma预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-pragma-message-“文本”"><span class="nav-number">3.3.1.</span> <span class="nav-text">1. #pragma message(“文本”)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-pragma-once"><span class="nav-number">3.3.2.</span> <span class="nav-text">2. #pragma once</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-pragma-warning-…"><span class="nav-number">3.3.3.</span> <span class="nav-text">3. #pragma warning(…)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-pragma-pack-n"><span class="nav-number">3.3.4.</span> <span class="nav-text">4. #pragma pack(n)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针与数组"><span class="nav-number">4.</span> <span class="nav-text">指针与数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指针"><span class="nav-number">4.1.</span> <span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-函数指针数组"><span class="nav-number">4.1.1.</span> <span class="nav-text">2. 函数指针数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">4.2.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-数组名的含义"><span class="nav-number">4.2.1.</span> <span class="nav-text">1. 数组名的含义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-数组与指针"><span class="nav-number">4.2.2.</span> <span class="nav-text">2. 数组与指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-基址-偏移方式访问数组元素问题"><span class="nav-number">4.2.3.</span> <span class="nav-text">3. 基址+偏移方式访问数组元素问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-数组指针与指针数组"><span class="nav-number">4.2.4.</span> <span class="nav-text">4. 数组指针与指针数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-数组作为函数参数"><span class="nav-number">4.2.5.</span> <span class="nav-text">5. 数组作为函数参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-多维数组"><span class="nav-number">4.2.6.</span> <span class="nav-text">6. 多维数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理"><span class="nav-number">5.</span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux程序内存模型"><span class="nav-number">5.1.</span> <span class="nav-text">linux程序内存模型:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">6.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">6.1.</span> <span class="nav-text">递归</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -844,6 +891,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -1037,26 +1088,6 @@
 
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
